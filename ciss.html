@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Out with Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #ff5e78;
+        }
+        button {
+            background-color: #ff5e78;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #ff7892;
+        }
+        #funny-response {
+            color: red;
+            font-size: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hey Eunice, do you want to go out with me?</h1>
+
+    <button onclick="yesAnswer()">Yes</button>
+    <button onclick="noAnswer()">No</button>
+
+    <p id="funny-response"></p>
+
+    <script>
+        function yesAnswer() {
+            document.getElementById('funny-response').style.display = 'none';
+            alert("Yay! Can't wait! 😍");
+        }
+
+        function noAnswer() {
+            var response = document.getElementById('funny-response');
+            response.style.display = 'block';
+            response.innerHTML = "Are you sure? Think about it... it's going to be fun! 😏";
+            
+            // Let's make it harder to click "No" again (a little joke)
+            document.querySelector("button[onclick='noAnswer()']").style.position = "absolute";
+            document.querySelector("button[onclick='noAnswer()']").style.left = Math.random() * window.innerWidth + 'px';
+            document.querySelector("button[onclick='noAnswer()']").style.top = Math.random() * window.innerHeight + 'px';
+        }
+    </script>
+
+</body>
+</html>
